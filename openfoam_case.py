@@ -32,6 +32,8 @@ class OpenFoamCase:
             forcesFile = ForcesFilesSupersonic(folderPath)
             self.force_array[:, id] = forcesFile.forces_summary
             self.forces_files.append(forcesFile)
+            if id == 0:
+                forcesFile.plot_forces()
 
     def get_base_pressure(self):
         filepath = self.directory + '/' + self.pressure_folders[0] + '/0/surfaceFieldValue.dat'
